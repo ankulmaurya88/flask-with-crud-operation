@@ -15,4 +15,4 @@ RUN pip install -e .
 EXPOSE 5000
 
 # Start Flask app
-CMD ["python", "main.py"]
+CMD ["python", "app/main.py"]
