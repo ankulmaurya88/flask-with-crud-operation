@@ -23,7 +23,9 @@ jobs:
           pip install -e .
 
       - name: Run tests
-        run: pytest
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          pytest
 
   build_and_push_docker:
     runs-on: ubuntu-latest
