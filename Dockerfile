@@ -4,15 +4,15 @@ FROM python:3.10-slim
 # Set working directory
 WORKDIR /app
 
-# Copy and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the entire project
+# Copy project files
 COPY . .
+
+# Install the package using setup.py
+RUN pip install --upgrade pip
+RUN pip install -e .
 
 # Expose Flask port
 EXPOSE 5000
 
 # Start Flask app
-CMD ["python", "app.py"]
+CMD ["python", "main.py"]
